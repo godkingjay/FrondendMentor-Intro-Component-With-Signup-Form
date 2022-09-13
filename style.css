@@ -1,3 +1,15 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
