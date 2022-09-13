@@ -6,8 +6,15 @@
 
 body {
   display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  padding: 0.25rem;
+  width: 100%;
 }
 
 .attribution {
