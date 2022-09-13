@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *, *:after, *:before {
   box-sizing: border-box;
   padding: 0;
@@ -11,6 +12,8 @@ body {
   flex-direction: column;
 }
 
+=======
+>>>>>>> parent of cd9e941 (style reset)
 .attribution {
   font-size: 11px;
   text-align: center;
