@@ -54,14 +54,16 @@ main {
   display: flex;
   flex: 1;
   position: relative;
+  width: 100%;
 }
 
 .wrapper {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  position: absolute;
-  inset: 2rem;
   align-items: center;
+  margin-inline: 2rem;
+  margin-block: 4rem;
 }
 
 .content {
@@ -124,6 +126,15 @@ main {
   flex-direction: column;
 }
 
+.input-group,
+.input-field,
+.input-btn,
+.input-invalid {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+}
+
 .input-field:focus,
 .input-btn:focus,
 .input-btn:hover {
@@ -137,6 +148,12 @@ main {
   border: 1px solid var(--text-input-clr);
 }
 
+.input-invalid {
+  text-align: right;
+  font-style: italic;
+  color: var(--text-input-failed-clr);
+}
+
 .input-btn {
   padding: 1rem;
   background: var(--btn-clr);
@@ -145,6 +162,17 @@ main {
   box-shadow: inset 0 -5px #0002;
   text-transform: uppercase;
   color: var(--text-input-btn-clr);
+}
+
+.input-footer {
+  text-align: center;
+  color: var(--text-footer-clr);
+}
+
+.input-footer > span {
+  font-family: "Poppins Bold", sans-serif;
+  color: var(--text-footer-hl-clr);
+  cursor: pointer;
 }
 
 footer {
@@ -165,10 +193,6 @@ footer {
 @media (max-width: 768px) {
   body {
     background-image: url('images/bg-intro-mobile.png');
-  }
-
-  .wrapper {
-    margin-block: 4rem;
   }
 
   .content {
