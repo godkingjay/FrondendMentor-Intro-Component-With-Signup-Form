@@ -19,6 +19,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: 1px black solid;
 }
 
 body {
@@ -29,6 +30,32 @@ body {
   background: var(--bg-clr);
   background-size: cover;
   font-family: Poppins, sans-serif;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  inset: 2rem;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.content > * {
+  flex: 1;
+  max-width: 600px;
 }
 
 footer {
