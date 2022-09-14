@@ -52,6 +52,7 @@ button {
 
 main {
   display: flex;
+  flex: 1;
   width: 100%;
   position: relative;
 }
@@ -60,8 +61,11 @@ main {
   display: flex;
   width: 100%;
   flex-direction: column;
-  align-items: center;
   position: relative;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 2rem;
 }
 
 .content {
@@ -69,11 +73,10 @@ main {
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  max-width: 1440px;
+  height: max-content;
+  width: 100%;
   position: relative;
-  margin-inline: 2rem;
-  margin-block: 4rem;
+  margin-block: clamp(5rem, 5rem, 10rem);
 }
 
 .content > * {
@@ -135,6 +138,13 @@ main {
   flex-direction: column;
 }
 
+.input-group,
+.input-field,
+.input-invalid,
+.input-btn {
+  transition: all 0.2s ease-in-out;
+}
+
 .input-field:focus,
 .input-btn:focus,
 .input-btn:hover {
@@ -166,6 +176,11 @@ main {
   color: var(--text-input-btn-clr);
 }
 
+.input-btn:focus,
+.input-btn:hover {
+  filter: brightness(120%);
+}
+
 .input-footer {
   text-align: center;
   color: var(--text-footer-clr);
@@ -175,6 +190,13 @@ main {
   font-family: "Poppins Bold", sans-serif;
   color: var(--text-footer-hl-clr);
   cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-footer > span:hover {
+  text-decoration: underline dotted;
+  filter: brightness(80%);
 }
 
 footer {
