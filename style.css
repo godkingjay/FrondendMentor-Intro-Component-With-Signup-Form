@@ -27,7 +27,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px black solid;
+  /* outline: 1px black solid; */
 }
 
 body {
@@ -149,6 +149,7 @@ main {
 .input-btn:focus,
 .input-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 1rem #0004;
 }
 
 .input-field {
@@ -178,7 +179,7 @@ main {
 
 .input-btn:focus,
 .input-btn:hover {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 .input-footer {
