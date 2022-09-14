@@ -43,6 +43,7 @@ main {
   flex-direction: column;
   position: absolute;
   inset: 2rem;
+  align-items: center;
 }
 
 .content {
@@ -51,6 +52,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 100%;
+  max-width: 1440px;
 }
 
 .content > * {
@@ -76,6 +78,14 @@ footer {
 @media (max-width: 768px) {
   body {
     background-image: url('images/bg-intro-mobile.png');
+  }
+
+  .wrapper {
+    margin-block: 4rem;
+  }
+
+  .content {
+    flex-direction: column;
   }
 }
 
