@@ -27,7 +27,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 1px black solid; */
+  outline: 1px black solid;
 }
 
 body {
@@ -52,9 +52,8 @@ button {
 
 main {
   display: flex;
-  flex: 1;
-  position: relative;
   width: 100%;
+  position: relative;
 }
 
 .wrapper {
@@ -62,8 +61,7 @@ main {
   width: 100%;
   flex-direction: column;
   align-items: center;
-  margin-inline: 2rem;
-  margin-block: 4rem;
+  position: relative;
 }
 
 .content {
@@ -73,11 +71,15 @@ main {
   justify-content: center;
   height: 100%;
   max-width: 1440px;
+  position: relative;
+  margin-inline: 2rem;
+  margin-block: 4rem;
 }
 
 .content > * {
   flex: 1;
   max-width: 500px;
+  position: relative;
 }
 
 .header {
@@ -95,19 +97,26 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
 }
 
 .card {
+  display: flex;
   width: 100%;
   border-radius: 0.5rem;
   box-shadow: 0 10px #0002;
+  position: relative;
 }
 
 .card-offer {
   background: var(--card-offer-clr);
   padding: 1rem;
-  text-align: center;
   color: var(--text-offer-clr);
+}
+
+.card-offer > p {
+  width: 100%;
+  text-align: center;
 }
 
 .card-form {
@@ -126,15 +135,6 @@ main {
   flex-direction: column;
 }
 
-.input-group,
-.input-field,
-.input-btn,
-.input-invalid {
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s ease-in-out;
-}
-
 .input-field:focus,
 .input-btn:focus,
 .input-btn:hover {
@@ -142,16 +142,18 @@ main {
 }
 
 .input-field {
-  padding: 1rem;
+  width: 0;
+  min-width: 100%;
   padding-inline: 2rem;
-  border-radius: 0.3rem;
+  padding-block: 1rem;
   border: 1px solid var(--text-input-clr);
+  border-radius: 0.25rem;
 }
 
 .input-invalid {
   text-align: right;
-  font-style: italic;
   color: var(--text-input-failed-clr);
+  font-style: italic;
 }
 
 .input-btn {
@@ -197,6 +199,7 @@ footer {
 
   .content {
     flex-direction: column;
+    gap: 4rem;
   }
 
   .header {
