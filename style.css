@@ -1,5 +1,18 @@
+@font-face {
+  font-family: Poppins;
+  src: url('./fonts/Poppins-Regular.ttf');
+}
+
 :root {
-  --bg-clr: hsl(0, 100%, 74%) ;
+  --bg-clr: hsl(0, 100%, 74%);
+  --btn-clr: hsl(154, 59%, 51%);
+  --card-form-clr: hsl(0, 100%, 100%);
+  --card-offer-clr: hsl(248, 32%, 49%);
+  --text-input-clr: hsl(249, 10%, 26%);
+  --text-input-active-clr: hsl(0, 0%, 15%);
+  --text-input-failed-clr: hsl(0, 100%, 74%);
+  --text-footer-clr: hsl(246, 25%, 77%);
+  --text-footer-hl-clr: hsl(0, 100%, 74%);
 }
 
 *, *:after, *:before {
@@ -14,6 +27,7 @@ body {
   position: relative;
   min-height: 100vh;
   background: var(--bg-clr);
+  font-family: Poppins, sans-serif;
 }
 
 footer {
