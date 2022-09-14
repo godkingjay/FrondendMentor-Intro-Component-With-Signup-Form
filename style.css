@@ -1,13 +1,20 @@
 @font-face {
-  font-family: Poppins;
+  font-family: "Poppins";
   src: url('./fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url('./fonts/Poppins-SemiBold.ttf');
 }
 
 :root {
   --bg-clr: hsl(0, 100%, 74%);
   --btn-clr: hsl(154, 59%, 51%);
-  --card-form-clr: hsl(0, 100%, 100%);
+  --card-form-clr: rgb(255, 255, 255);
   --card-offer-clr: hsl(248, 32%, 49%);
+  --text-header-clr: rgb(255, 255, 255);
+  --text-offer-clr: rgb(255, 255, 255);
   --text-input-clr: hsl(249, 10%, 26%);
   --text-input-active-clr: hsl(0, 0%, 15%);
   --text-input-failed-clr: hsl(0, 100%, 74%);
@@ -30,6 +37,10 @@ body {
   background: var(--bg-clr);
   background-size: cover;
   font-family: Poppins, sans-serif;
+}
+
+h1 {
+  font-family: "Poppins Bold", sans-serif;
 }
 
 main {
@@ -57,7 +68,42 @@ main {
 
 .content > * {
   flex: 1;
-  max-width: 600px;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-header-clr);
+  gap: 2rem;
+}
+
+.header-title {
+  line-height: 3rem;
+}
+
+.card-ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px #0002;
+}
+
+.card-offer {
+  background: var(--card-offer-clr);
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-offer-clr);
+}
+
+.card-form {
+  background: var(--card-form-clr);
+  padding: 2rem;
 }
 
 footer {
@@ -87,10 +133,18 @@ footer {
   .content {
     flex-direction: column;
   }
+
+  .header {
+    text-align: center;
+  }
 }
 
 @media (min-width: 769px) {
   body {
     background-image: url('images/bg-intro-desktop.png');
+  }
+
+  .header-title {
+    font-size: 3rem;
   }
 }
