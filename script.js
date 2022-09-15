@@ -18,6 +18,7 @@ inputField.forEach(i => i.addEventListener('input', (e) => {
   
   if(!validateInput(input, inputType)){
     if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
+    else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
     else invalid.textContent = `${inputType} should only contain characters ${inputPattern}`;
     invalid.classList.add('show-invalid');
   } else {
@@ -49,12 +50,12 @@ inputForm.addEventListener('submit', (e) => {
 
 function validateInput(input, type) {
   if (type.toLowerCase() == 'first name'){
-    isValidFirstName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(input);
+    isValidFirstName = input.match(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/);
     return isValidFirstName;
   }
 
   if (type.toLowerCase() == 'last name'){
-    isValidLastName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(input);
+    isValidLastName = input.match(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/);
     return isValidLastName;
   }
 
