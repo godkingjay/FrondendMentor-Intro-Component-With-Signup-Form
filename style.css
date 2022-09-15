@@ -157,12 +157,13 @@ main {
   padding-block: 1rem;
   border: 1px solid var(--text-input-clr);
   border-radius: 0.25rem;
-  box-sizing: border-box;
+  inline-size: min-content;
 }
 
 .input-invalid-ctn {
   display: flex;
   overflow: hidden;
+  position: relative;
 }
 
 .input-invalid {
