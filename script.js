@@ -13,6 +13,18 @@ inputField.forEach(i => i.addEventListener('input', (e) => {
 }));
 
 inputForm.addEventListener('submit', (e) => {
-  console.log(e.target);
-  e.preventDefault();
+  inputField.forEach((input) => {
+    console.log(input);
+
+    const inputType = input.placeholder;
+    const group = input.parentNode;
+    const invalid = group.querySelector('.input-invalid');
+    
+    if (input.value.length == 0){
+      invalid.textContent = `${inputType} cannot be empty`;
+      e.preventDefault();
+    } else {
+      invalid.textContent = "";
+    }
+  });
 });
