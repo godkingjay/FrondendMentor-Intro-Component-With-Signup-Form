@@ -16,6 +16,9 @@ inputField.forEach(i => i.addEventListener('input', (e) => {
   const inputPattern = field.dataset.pattern;
 
   if (input.length == 0) {
+    invalid.textContent = `${inputType} cannot be empty`;
+    invalid.classList.add('show-invalid');
+    field.classList.add('input-field-invalid');
     field.classList.remove('input-field-invalid-text');
     return;
   }
@@ -25,10 +28,12 @@ inputField.forEach(i => i.addEventListener('input', (e) => {
     else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
     else invalid.textContent = `${inputType} should only contain characters ${inputPattern}`;
     invalid.classList.add('show-invalid');
+    field.classList.add('input-field-invalid');
     field.classList.add('input-field-invalid-text');
   } else {
     invalid.textContent = '';
     invalid.classList.remove('show-invalid');
+    field.classList.remove('input-field-invalid');
     field.classList.remove('input-field-invalid-text');
   }
 
@@ -48,6 +53,8 @@ inputForm.addEventListener('submit', (e) => {
       if (inputType.toLowerCase() == 'email address'){
         field.value = "email@example/com";
         field.classList.add('input-field-invalid-text');
+      } else {
+        field.value = " ";
       }
 
       invalid.textContent = `${inputType} cannot be empty`;

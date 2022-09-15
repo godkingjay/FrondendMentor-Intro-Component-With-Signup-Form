@@ -162,7 +162,7 @@ main {
 
 .input-field-invalid {
   border-color: var(--text-input-failed-clr);
-  border-width: 2px;
+  box-shadow: 0 0 0 1px var(--text-input-failed-clr) ;
 }
 
 .input-field-invalid-text {
