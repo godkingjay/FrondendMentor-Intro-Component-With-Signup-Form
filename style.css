@@ -146,29 +146,61 @@ main {
 }
 
 .input-field:focus,
+.input-field:focus,
 .input-btn:focus,
 .input-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 1rem #0004;
 }
 
+.input-field-ctn {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
 .input-field {
   width: 100%;
-  padding-inline: 2rem;
+  padding-left: 2rem;
+  padding-right: 4rem;
   padding-block: 1rem;
   border: 1px solid var(--text-input-clr);
   border-radius: 0.25rem;
 }
 
+/* Thicken the border of input fields with invalid input */
 .input-field-invalid {
   border-color: var(--text-input-failed-clr);
   box-shadow: 0 0 0 1px var(--text-input-failed-clr) ;
 }
 
+/* Change the color of text inside input fields with invalid input */
 .input-field-invalid-text {
   color: var(--text-input-failed-clr);
 }
 
+/* Icon shown for fields with invalid input */
+.input-field-invalid-icon {
+  width: 0;
+  aspect-ratio: 1;
+  background-image: url('images/icon-error.svg');
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translate(0, -50%);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-field:focus + span {
+  transform: translate(0.75rem, -50%);
+}
+
+.show-invalid-icon {
+  width: 1.25rem;
+}
+
+/* invalid message container */
 .input-invalid-ctn {
   display: flex;
   overflow: hidden;
@@ -188,6 +220,7 @@ main {
   padding-inline: 0.1rem;
 }
 
+/* Show invalid message below input field. */
 .show-invalid {
   height: max-content;
   font-size: small;

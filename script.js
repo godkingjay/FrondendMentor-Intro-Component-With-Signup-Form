@@ -6,66 +6,86 @@ var isValidLastName;
 var isValidEmailAddress;
 var isValidPassword;
 
+document.querySelectorAll('.input-field').forEach((field) => {
+  field.value = '';
+});
+
+document.querySelector('[data-type="Email Address"]').addEventListener('focus', (e) => {
+  if(e.target.value == 'email@example/com' && e.target.placeholder.length == 0){
+    e.target.value = '';
+    e.target.classList.remove('input-field-invalid-text');
+  }
+});
+
 inputField.forEach(i => i.addEventListener('input', (e) => {
   const group = e.target.parentNode.parentNode;
   const field = group.querySelector('.input-field');
   const invalid = group.querySelector('.input-invalid');
+  const icon = group.querySelector('.input-field-invalid-icon');
   
   const input = field.value;
   const inputType = field.dataset.type;
   const inputPattern = field.dataset.pattern;
 
   if (input.length == 0) {
+    field.classList.remove('input-field-invalid-text');
+    field.classList.add('input-field-invalid');
     field.placeholder = inputType;
     invalid.textContent = `${inputType} cannot be empty`;
     invalid.classList.add('show-invalid');
-    field.classList.add('input-field-invalid');
-    field.classList.remove('input-field-invalid-text');
+    icon.classList.add('show-invalid-icon');
     return;
   }
   
   if(!validateInput(input, inputType)){
-    if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
-    else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
-    else invalid.textContent = `${inputType} should only contain characters ${inputPattern}`;
-    invalid.classList.add('show-invalid');
     field.classList.add('input-field-invalid');
     field.classList.add('input-field-invalid-text');
+    if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern: ${inputPattern}`;
+    else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one: ${inputPattern} and must atleast be 8 characters long.`;
+    else invalid.textContent = `${inputType} should only contain characters: ${inputPattern}`;
+    invalid.classList.add('show-invalid');
+    icon.classList.add('show-invalid-icon');
   } else {
-    invalid.textContent = '';
-    invalid.classList.remove('show-invalid');
     field.classList.remove('input-field-invalid');
     field.classList.remove('input-field-invalid-text');
+    invalid.textContent = '';
+    invalid.classList.remove('show-invalid');
+    icon.classList.remove('show-invalid-icon');
   }
-
-  console.log(inputType);
 }));
 
 inputForm.addEventListener('submit', (e) => {
   inputField.forEach((input) => {
-    console.log(input);
-
     const inputType = input.dataset.type;
     const group = input.parentNode.parentNode;
     const field = group.querySelector('.input-field');
     const invalid = group.querySelector('.input-invalid');
+    const icon = group.querySelector('.input-field-invalid-icon');
+    const inputPattern = input.dataset.pattern;
     
-    if (input.value.length == 0){
+    if (input.value.length == 0 || !validateInput(input.value, inputType)) {
+      field.classList.add('input-field-invalid')
       if (inputType.toLowerCase() == 'email address'){
         field.value = "email@example/com";
         field.classList.add('input-field-invalid-text');
-      } else {
-        field.placeholder = "";
       }
 
-      invalid.textContent = `${inputType} cannot be empty`;
+      field.placeholder = "";
+
+      if (input.value.length > 0 && !validateInput(input.value, inputType)){
+        if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern: ${inputPattern}`;
+        else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one: ${inputPattern} and must atleast be 8 characters long.`;
+        else invalid.textContent = `${inputType} should only contain characters: ${inputPattern}`;
+      }
+      else invalid.textContent = `${inputType} cannot be empty`;
       invalid.classList.add('show-invalid');
-      field.classList.add('input-field-invalid')
+      icon.classList.add('show-invalid-icon');
       e.preventDefault();
     } else {
+      field.classList.remove('input-field-invalid')
       invalid.textContent = "";
       invalid.classList.remove('show-invalid');
-      field.classList.remove('input-field-invalid')
+      icon.classList.remove('show-invalid-icon');
     }
   });
 
@@ -91,7 +111,7 @@ function validateInput(input, type) {
   }
 
   if (type.toLowerCase() == 'password'){
-    isValidPassword = input.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/);
+    isValidPassword = input.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,256}$/);
     return isValidPassword;
   }
 }
