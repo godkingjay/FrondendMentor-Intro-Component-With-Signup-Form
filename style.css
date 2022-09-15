@@ -17,7 +17,7 @@
   --text-offer-clr: rgb(255, 255, 255);
   --text-input-clr: hsl(249, 10%, 26%);
   --text-input-active-clr: hsl(0, 0%, 15%);
-  --text-input-failed-clr: hsl(0, 100%, 74%);
+  --text-input-invalid-clr: hsl(0, 100%, 74%);
   --text-input-btn-clr: rgb(255, 255, 255);
   --text-footer-clr: hsl(246, 25%, 77%);
   --text-footer-hl-clr: hsl(0, 100%, 74%);
@@ -174,13 +174,13 @@ main {
 
 /* Thicken the border of input fields with invalid input */
 .input-field-invalid {
-  border-color: var(--text-input-failed-clr);
-  box-shadow: 0 0 0 1px var(--text-input-failed-clr) ;
+  border-color: var(--text-input-invalid-clr);
+  box-shadow: 0 0 0 1px var(--text-input-invalid-clr) ;
 }
 
 /* Change the color of text inside input fields with invalid input */
 .input-field-invalid-text {
-  color: var(--text-input-failed-clr);
+  color: var(--text-input-invalid-clr);
 }
 
 /* Icon shown for fields with invalid input */
@@ -218,7 +218,7 @@ main {
   margin-left: auto;
   width: 100%;
   text-align: right;
-  color: var(--text-input-failed-clr);
+  color: var(--text-input-invalid-clr);
   font-style: italic;
   transition: all 0.2s ease-in-out;
   padding-inline: 0.1rem;
