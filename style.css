@@ -13,6 +13,8 @@
   --btn-clr: hsl(154, 59%, 51%);
   --card-form-clr: rgb(255, 255, 255);
   --card-offer-clr: hsl(248, 32%, 49%);
+  --border-input-clr: hsl(246, 25%, 77%);
+  --border-input-active-clr: hsl(249, 10%, 26%);
   --text-header-clr: rgb(255, 255, 255);
   --text-offer-clr: rgb(255, 255, 255);
   --text-input-clr: hsl(249, 10%, 26%);
@@ -168,8 +170,12 @@ main {
   padding-left: 2rem;
   padding-right: 4rem;
   padding-block: 1rem;
-  border: 1px solid var(--text-input-clr);
+  border: 1px solid var(--border-input-clr);
   border-radius: 0.25rem;
+}
+
+.input-field:focus {
+  border-color: var(--border-input-active-clr);
 }
 
 /* Thicken the border of input fields with invalid input */
