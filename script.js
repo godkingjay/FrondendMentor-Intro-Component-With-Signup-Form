@@ -42,7 +42,7 @@ inputField.forEach(i => i.addEventListener('input', (e) => {
     field.classList.add('input-field-invalid-text');
     if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
     else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
-    else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 3-48 characters long.`;
+    else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 2-48 characters long.`;
     invalid.classList.add('show-invalid');
     icon.classList.add('show-invalid-icon');
   } else {
@@ -75,7 +75,7 @@ inputForm.addEventListener('submit', (e) => {
       if (input.value.length > 0 && !validateInput(input.value, inputType)){
         if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
         else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
-        else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 3-48 cha`;
+        else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 2-48 cha`;
       }
       else invalid.textContent = `${inputType} cannot be empty`;
       invalid.classList.add('show-invalid');
@@ -95,18 +95,18 @@ inputForm.addEventListener('submit', (e) => {
 
 function validateInput(input, type) {
   if (type.toLowerCase() == 'first name'){
-    isValidFirstName = input.match(/^(?=.{3,48}$)[a-zA-Z]+([',. -][a-zA-Z]+)*$/);
+    isValidFirstName = input.match(/^(?=.{2,48}$)[a-zA-Z]+([',. -][a-zA-Z]+)*$/);
     return isValidFirstName;
   }
 
   if (type.toLowerCase() == 'last name'){
-    isValidLastName = input.match(/^(?=.{3,48}$)[a-zA-Z]+([',. -][a-zA-Z]+)*$/);
+    isValidLastName = input.match(/^(?=.{2,48}$)[a-zA-Z]+([',. -][a-zA-Z]+)*$/);
     return isValidLastName;
   }
 
   if (type.toLowerCase() == 'email address'){
     isValidEmailAddress = input.toLowerCase()
-                                .match(/^(?=.{6,256}$)(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+                                .match(/^(?=.{5,256}$)(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     return isValidEmailAddress;
   }
 

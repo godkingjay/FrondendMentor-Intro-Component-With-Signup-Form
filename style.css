@@ -50,6 +50,10 @@ button {
   cursor: pointer;
 }
 
+.text-bolden {
+  font-weight: bold;
+}
+
 main {
   display: flex;
   flex: 1;
@@ -136,7 +140,7 @@ main {
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .input-group,
@@ -223,7 +227,7 @@ main {
 /* Show invalid message below input field. */
 .show-invalid {
   height: max-content;
-  font-size: small;
+  font-size: 12px;
   height: 100%;
   transform: translate(0, 0);
 }
@@ -241,6 +245,7 @@ main {
 .input-btn:focus,
 .input-btn:hover {
   filter: brightness(110%);
+  box-shadow: inset 0 -5px #0002;
 }
 
 .input-footer {
