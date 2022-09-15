@@ -160,6 +160,15 @@ main {
   border-radius: 0.25rem;
 }
 
+.input-field-invalid {
+  border-color: var(--text-input-failed-clr);
+  border-width: 2px;
+}
+
+.input-field-invalid-text {
+  color: var(--text-input-failed-clr);
+}
+
 .input-invalid-ctn {
   display: flex;
   overflow: hidden;
