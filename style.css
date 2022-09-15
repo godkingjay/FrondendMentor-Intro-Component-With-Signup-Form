@@ -136,6 +136,7 @@ main {
 .input-group {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
 }
 
 .input-group,
@@ -157,7 +158,6 @@ main {
   padding-block: 1rem;
   border: 1px solid var(--text-input-clr);
   border-radius: 0.25rem;
-  inline-size: min-content;
 }
 
 .input-invalid-ctn {
@@ -167,14 +167,16 @@ main {
 }
 
 .input-invalid {
+  display: block;
   height: 0;
   transform: translate(calc(100% + 1rem), 0);
   margin-left: auto;
-  width: max-content;
+  width: 100%;
   text-align: right;
   color: var(--text-input-failed-clr);
   font-style: italic;
   transition: all 0.2s ease-in-out;
+  padding-inline: 0.1rem;
 }
 
 .show-invalid {
