@@ -289,7 +289,6 @@ footer {
   .content {
     flex-direction: column;
     gap: 4rem;
-    margin-block: 4rem;
   }
 
   .header {
