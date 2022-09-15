@@ -65,6 +65,14 @@ inputForm.addEventListener('submit', (e) => {
     
     if (input.value.length == 0 || !validateInput(input.value, inputType)) {
       field.classList.add('input-field-invalid')
+      
+      if (input.value.length > 0 && !validateInput(input.value, inputType)){
+        if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
+        else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
+        else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 2-48 cha`;
+      }
+      else invalid.textContent = `${inputType} cannot be empty`;
+      
       if (inputType.toLowerCase() == 'email address'){
         field.value = "email@example/com";
         field.classList.add('input-field-invalid-text');
@@ -72,12 +80,6 @@ inputForm.addEventListener('submit', (e) => {
 
       field.placeholder = "";
 
-      if (input.value.length > 0 && !validateInput(input.value, inputType)){
-        if (inputType.toLowerCase() == 'email address') invalid.textContent = `${inputType} should follow this pattern ${inputPattern}`;
-        else if (inputType.toLowerCase() == 'password') invalid.textContent = `${inputType} should contain atleast one ${inputPattern} and must atleast be 8 characters long.`;
-        else invalid.textContent = `${inputType} should only contain the characters ${inputPattern} and should be 2-48 cha`;
-      }
-      else invalid.textContent = `${inputType} cannot be empty`;
       invalid.classList.add('show-invalid');
       icon.classList.add('show-invalid-icon');
       e.preventDefault();
