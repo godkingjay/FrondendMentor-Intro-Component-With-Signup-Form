@@ -66,7 +66,7 @@ main {
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 2rem;
-  padding-top: 5rem;
+  padding-block: clamp(4rem, 5rem, 5rem);
 }
 
 .content {
@@ -168,19 +168,19 @@ main {
 
 .input-invalid {
   height: 0;
-  font-size: 0;
   transform: translate(calc(100% + 1rem), 0);
   margin-left: auto;
   width: max-content;
   text-align: right;
   color: var(--text-input-failed-clr);
   font-style: italic;
-  transition: all 0.2s ease-in-out, transform 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .show-invalid {
   height: max-content;
   font-size: small;
+  height: 100%;
   transform: translate(0, 0);
 }
 

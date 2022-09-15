@@ -22,9 +22,11 @@ inputForm.addEventListener('submit', (e) => {
     
     if (input.value.length == 0){
       invalid.textContent = `${inputType} cannot be empty`;
+      invalid.classList.add('show-invalid');
       e.preventDefault();
     } else {
       invalid.textContent = "";
+      invalid.classList.remove('show-invalid');
     }
   });
 });
