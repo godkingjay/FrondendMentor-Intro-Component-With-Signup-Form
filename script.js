@@ -7,15 +7,16 @@ var isValidEmailAddress;
 var isValidPassword;
 
 inputField.forEach(i => i.addEventListener('input', (e) => {
-  const group = e.target.parentNode;
+  const group = e.target.parentNode.parentNode;
   const field = group.querySelector('.input-field');
   const invalid = group.querySelector('.input-invalid');
   
   const input = field.value;
-  const inputType = field.placeholder;
+  const inputType = field.dataset.type;
   const inputPattern = field.dataset.pattern;
 
   if (input.length == 0) {
+    field.placeholder = inputType;
     invalid.textContent = `${inputType} cannot be empty`;
     invalid.classList.add('show-invalid');
     field.classList.add('input-field-invalid');
@@ -44,8 +45,8 @@ inputForm.addEventListener('submit', (e) => {
   inputField.forEach((input) => {
     console.log(input);
 
-    const inputType = input.placeholder;
-    const group = input.parentNode;
+    const inputType = input.dataset.type;
+    const group = input.parentNode.parentNode;
     const field = group.querySelector('.input-field');
     const invalid = group.querySelector('.input-invalid');
     
@@ -54,7 +55,7 @@ inputForm.addEventListener('submit', (e) => {
         field.value = "email@example/com";
         field.classList.add('input-field-invalid-text');
       } else {
-        field.value = " ";
+        field.placeholder = "";
       }
 
       invalid.textContent = `${inputType} cannot be empty`;
