@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/ping-coming-soon-page-responsive-html-css-js-ItyPga1De4)
+- Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/intro-component-with-sign-up-form-responsive-html-css-js-45SzsTV6oX)
 - Live Site URL: ---> [LINK](https://godkingjay.github.io/FrondendMentor-Intro-Component-With-Signup-Form/)
 
 ## My process
@@ -49,6 +49,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- JavaScript
 
 ## Author
 
